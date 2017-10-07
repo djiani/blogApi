@@ -4,7 +4,7 @@
   "description": "Blogging Platform",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [
     "node",
@@ -17,5 +17,21 @@
     "express": "^4.16.1",
     "morgan": "^1.9.0",
     "uuid": "^3.1.0"
-  }
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "mocha": "^4.0.1"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djiani/blogApi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/djiani/blogApi/issues"
+  },
+  "homepage": "https://github.com/djiani/blogApi#readme"
 }
