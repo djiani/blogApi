@@ -11,6 +11,7 @@ app.use(morgan('common'));
 
 app.get('/', (req, res)=>{
   console.log('test running app');
+  res.send('test running app')
 });
 
 
