@@ -4,7 +4,6 @@ const chaiHttp = require('chai-http');
 const {app, runServer, closeServer} = require('../index');
 
 // this lets us use *should* style syntax in our tests
-// so we can do things like `(1 + 1).should.equal(2);`
 // http://chaijs.com/api/bdd/
 const should = chai.should();
 
@@ -62,7 +61,6 @@ describe('blog-posts', function(){
     .get('/blog-posts')
     .then(function(res){
       updateBlog.id = res.body[0].id;
-      console.log(updateBlog);
       return chai.request(app)
       .put(`/blog-posts/${res.body[0].id}`)
       .send(updateBlog)
