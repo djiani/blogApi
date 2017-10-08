@@ -12,7 +12,7 @@ BlogPosts.create('second post', 'here my sample post created', 'samuel', '10/4/2
 
 //get back all post if get on the root
 router.get('/', (req, res)=>{
-  res.json(BlogPosts.get());
+  res.status(200).json(BlogPosts.get());
 });
 
 //adding new post 
@@ -38,7 +38,7 @@ router.delete('/:id', (req,res)=>{
 });
 
 //update a post
-router.put('./:id',jsonParser, (req, res)=>{
+router.put('/:id',jsonParser, (req, res)=>{
   const requiredFields = ['title', 'content', 'author', 'publishDate'];
   for(let i =0; i< requiredFields.length; i++){
     if(!(requiredFields[i] in req.body)){
@@ -64,6 +64,5 @@ router.put('./:id',jsonParser, (req, res)=>{
   });
   res.status(204).end();
 })
-
 
 module.exports = router;

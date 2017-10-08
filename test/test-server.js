@@ -51,9 +51,13 @@ describe('blog-posts', function(){
     });
   });
 
-
   it('should update post on PUT', function(){
-    const updateBlog = {title:"test2", content:"integration test on POST update", author:"author1", publishDate:"10/5/2017"};
+    const updateBlog = {
+      title: "test2", 
+      content: "integration test on POST update", 
+      author: "author1", 
+      publishDate: "10/5/2017"
+    };
     return chai.request(app)
     .get('/blog-posts')
     .then(function(res){
@@ -65,17 +69,15 @@ describe('blog-posts', function(){
       .then(function(res){
         res.should.have.status(204);
       });
-    })
-    
+    }) 
   });
-
 
   it('should delete post on DELETE', function(){
     return chai.request(app)
     .get('/blog-posts')
     .then(function(res){
       return chai.request(app)
-      .delete(`blog-posts/${res.body[0].id}`)
+      .delete(`/blog-posts/${res.body[0].id}`)
       .then(function(res){
         res.should.have.status(204);
       });
