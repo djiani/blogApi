@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: wVsVHL9PV6LUTSvzlB4mdE8UavvHV1xb3GvdNshfoLeNPJjrgHnVj2UZs0tiVhaqH5TxbmSmqDqsO5q1/zmCpz+5/J5rXaYBH3Oc9NYLLP8JQxf2/QEaTy++CsBmtRQVbB+PTog/a4CHHLwSEw2+E1tnDCaafcCztkO8tSkfV5QAOBr7Y8LUe62VCbtGWr1lJ6GJ74UJuNdqb3vpVfAWNcxddfjBY4ikwWSgpcQ5d6wi/W6Y59zm/NjwQ2JhBJsdI2xqIRFXsLZjcro6n+QDYcvMI7dq0xyX+1nQxVvD5wKQQT4lzAzsxYhBzUHTM1B8ZXrmhVobbnOtDH5YsHhAicTvM5Zp48Dpv1VdT5FUBF64LOcHtjvRsX5ubF9cx72tHUKiiahagJnsKSxd8VKshoApTm3lpHHzKCfX5BLz0zhDFiIS7iEIaMjxUmo/fkwf+/khgUs5HiE0qTLZf7TbtCDndm6OhWKxt6YCAti/loNQMP2/If2h0kz7+HRiUcG1muZol+XlI/XcT8xDuHhuQJ/ONV61s7M/ohvGPgNSg53Ve1i8U3A0z1jIQmWQtPSrlGarlKkMQWhjutUFcxz4R1IQuHcMZl7f/gPh+kogGUXFmsPtmPcWw1jm3l6U1wsx9SfadRWUiVl6op+iFhUZiAVJ670MNeJL8ZThBgyYbA0=
+  app: blogApi
+  on:
+    repo: djiani/blogApi
