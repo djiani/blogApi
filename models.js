@@ -30,4 +30,6 @@ blogPostSchema.methods.apiRepr = function(){
 
 
 const BlogPost = mongoose.model('BlogPost', blogPostSchema);
+//.model('BlogPost') => refers to the collection name to use in database. 
+//but by default, mongo convert this name: 'BlogPost' => 'blogposts'. so behing the scene, we acces our db as follow: db.blogposts. 
 module.exports= {BlogPost};
