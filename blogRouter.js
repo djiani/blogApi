@@ -12,11 +12,7 @@ router.get('/', jsonParser, (req, res)=>{
   BlogPost
   .find()
   .then(postres =>{
-    res.status(200).json({
-      'posts': postres.map(post =>{
-        post.apiRepr();
-      })
-    })
+    res.status(200).json(postres);
   })
   .catch(err =>{
     console.error(err);
