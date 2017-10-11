@@ -20,7 +20,7 @@ app.get('/', (req, res)=>{
 });
 
 
-app.use('/posts',blogPostRouter);
+app.use('/posts', blogPostRouter);
 
 // both runServer and closeServer need to access the same
 // server object, so we declare `server` here, and then when

@@ -25,7 +25,7 @@ router.get('/', (req, res)=>{
 });
 
 //get back post with a given id 
-router.get('/:id', (req, res)=>{
+router.get('/:id', jsonParser, (req, res)=>{
   BlogPost.findById(req.params.id)
   .then(post => res.json(post.apiRepr()))
   .catch(err =>{
@@ -33,6 +33,7 @@ router.get('/:id', (req, res)=>{
     res.status(500).json({message:"Internal server error"})
   })
 });
+
 
 //add a new post to a db
 router.post('/', jsonParser, (req, res)=>{
@@ -60,6 +61,7 @@ router.post('/', jsonParser, (req, res)=>{
   });
 });
 
+
 //edit title of post 
 router.put('/:id',jsonParser, (req, res) => {
   // ensure that the id in the request path and the one in request body match
@@ -84,6 +86,7 @@ router.put('/:id',jsonParser, (req, res) => {
     .then(post => res.status(204).end())
     .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
+
 
 //delete post 
 router.delete('/:id', jsonParser, (req, res) => {
