@@ -8,7 +8,7 @@ const jsonParser = bodyParser.json();
 const {BlogPost} = require('./models');
 
 //get back all post if get on the root
-router.get('/', (req, res)=>{
+router.get('/', jsonParser, (req, res)=>{
   BlogPost
   .find()
   .then(posts =>{
