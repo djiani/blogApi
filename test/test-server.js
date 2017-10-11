@@ -11,7 +11,7 @@ const should = chai.should();
 // see: https://github.com/chaijs/chai-http
 chai.use(chaiHttp);
 
-describe('blog-posts', function(){
+describe('posts', function(){
   before(function(){
     return runServer();
   })
@@ -22,7 +22,7 @@ describe('blog-posts', function(){
 
   it('List all post on GET', function(){
     return chai.request(app)
-    .get('/blog-posts')
+    .get('/posts')
     .then(function(res){
       res.should.have.status(200);
       res.should.be.json;
@@ -31,7 +31,7 @@ describe('blog-posts', function(){
       const expectdKeys = ['id', 'title', 'content', 'author', 'publishDate'];
       res.body.forEach(function(post){
         post.should.be.a('object');
-        post.should.include.keys(expectdKeys);;
+        post.should.include.keys(expectdKeys);
       });
     });
   });
@@ -39,7 +39,7 @@ describe('blog-posts', function(){
   it('should add a new blog on POST', function(){
     const newBlog = {title:"test", content:"integration test on POST", author:"author1", publishDate:"10/5/2017"}
     return chai.request(app)
-    .post('/blog-posts')
+    .post('/posts')
     .send(newBlog)
     .then(function(res){
       res.should.have.status(201);
@@ -58,11 +58,11 @@ describe('blog-posts', function(){
       publishDate: "10/5/2017"
     };
     return chai.request(app)
-    .get('/blog-posts')
+    .get('/posts')
     .then(function(res){
       updateBlog.id = res.body[0].id;
       return chai.request(app)
-      .put(`/blog-posts/${res.body[0].id}`)
+      .put(`/posts/${res.body[0].id}`)
       .send(updateBlog)
       .then(function(res){
         res.should.have.status(204);
@@ -72,10 +72,10 @@ describe('blog-posts', function(){
 
   it('should delete post on DELETE', function(){
     return chai.request(app)
-    .get('/blog-posts')
+    .get('/posts')
     .then(function(res){
       return chai.request(app)
-      .delete(`/blog-posts/${res.body[0].id}`)
+      .delete(`/posts/${res.body[0].id}`)
       .then(function(res){
         res.should.have.status(204);
       });
