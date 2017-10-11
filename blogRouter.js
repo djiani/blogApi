@@ -11,9 +11,9 @@ const {BlogPost} = require('./models');
 router.get('/', jsonParser, (req, res)=>{
   BlogPost
   .find()
-  .then(posts =>{
-    res.json({
-      posts:posts.map(post =>{
+  .then(postres =>{
+    res.status(200).json({
+      'posts': postres.map(post =>{
         post.apiRepr();
       })
     })
@@ -100,7 +100,7 @@ router.delete('/:id', jsonParser, (req, res) => {
 
 
 
-module.exports= {router};
+module.exports= router;
 
 
 

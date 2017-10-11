@@ -7,7 +7,7 @@ mongoose.Promise = global.Promise;
 
 const app = express();
 
-const blogPostRouter = require('./blogRouter');
+const router = require('./blogRouter');
 const {PORT, DATABASE_URL} = require('./config');
 
 //logger middleware function using the given format and option
@@ -20,7 +20,7 @@ app.get('/', (req, res)=>{
 });
 
 
-//app.use('/posts', blogPostRouter);
+app.use('/posts', router);
 
 // both runServer and closeServer need to access the same
 // server object, so we declare `server` here, and then when
