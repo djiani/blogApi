@@ -48,7 +48,8 @@ router.post('/', jsonParser, (req, res)=>{
   .create({
     title:req.body.title,
     content:req.body.content,
-    author: req.body.author
+    author: req.body.author,
+    created:req.body.created || Date.now
   })
   .then(
     post => res.status(201).json(post.apiRepr())
